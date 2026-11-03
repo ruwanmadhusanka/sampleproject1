@@ -20,6 +20,7 @@ pipeline {
         ]) {
           sh '''
             git checkout -B main
+            rm -f release.properties pom.xml.releaseBackup
             mvn -B release:prepare release:perform -Dresume=false \
               -DreleaseVersion="$RELEASE_VERSION" \
               -DdevelopmentVersion="$DEV_VERSION" \
