@@ -20,7 +20,7 @@ pipeline {
         ]) {
           sh '''
             git checkout -B main
-            mvn -B release:prepare release:perform \
+            mvn -B release:prepare release:perform -Dresume=false \
               -DreleaseVersion="$RELEASE_VERSION" \
               -DdevelopmentVersion="$DEV_VERSION" \
               -Darguments="-Dmaven.test.skip=true"
